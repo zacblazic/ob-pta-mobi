@@ -11,6 +11,7 @@
     
     <!-- SignInDialogFragment --> 
     <string name="text_view_username">Username:</string>
+    <string name="text_view_username_domain">openbox\\</string>
     <string name="text_view_password">Password:</string>
     <string name="hint_username">Domain\\Username</string>
     <string name="hint_password">Password</string>
