@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">OBPTAmobi</string>
+    <string name="title_section3">Report</string>
+    <string name="title_section2">Log Work</string>
+    <string name="title_section1">Summary</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_signout">Sign Out</string>
+    <string name="title_activity_pta">OBPTA.mobi</string>
+    <string name="label_date_worked">Date Worked</string>
+
+</resources>
