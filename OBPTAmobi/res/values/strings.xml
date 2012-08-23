@@ -6,7 +6,7 @@
     <string name="title_section1">Summary</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_signout">Sign Out</string>
-    <string name="title_activity_pta">OBPTA.mobi</string>
+    <string name="title_activity_pta">Mobile PTA</string>
     <string name="label_date_worked">Date Worked</string>
     
     <!-- SignInDialogFragment --> 

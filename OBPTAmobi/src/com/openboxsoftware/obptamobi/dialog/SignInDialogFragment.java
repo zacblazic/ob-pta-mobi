@@ -23,7 +23,7 @@ public class SignInDialogFragment extends DialogFragment {
 		
 		int style = DialogFragment.STYLE_NO_TITLE;
 		int theme = android.R.style.Theme_Holo_Dialog;
-		
+
 		this.setStyle(style, theme);
 	}
 	
@@ -49,6 +49,9 @@ public class SignInDialogFragment extends DialogFragment {
 				SignInDialogFragment.this.dismiss();
 			}
 		});
+		
+		// Don't allow the dialog to be cancelled by touching outside of it
+		this.getDialog().setCanceledOnTouchOutside(false);
 		
 		return view;
 	}
