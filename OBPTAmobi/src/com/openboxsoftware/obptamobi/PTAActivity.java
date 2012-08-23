@@ -1,12 +1,12 @@
 package com.openboxsoftware.obptamobi;
 
-import com.openboxsoftware.obptamobi.fragments.LogWorkFragment;
-
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +14,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.openboxsoftware.obptamobi.dialog.SignInDialogFragment;
+import com.openboxsoftware.obptamobi.fragment.LogWorkFragment;
 
 public class PTAActivity extends FragmentActivity {
 
@@ -43,6 +46,8 @@ public class PTAActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        
+        this.showSignInDialog();
 
     }
 
@@ -52,9 +57,6 @@ public class PTAActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.activity_pta, menu);
         return true;
     }
-
-    
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
@@ -120,5 +122,20 @@ public class PTAActivity extends FragmentActivity {
 	        textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
 	        return textView;
         }
+    }
+    
+    public void showSignInDialog() {
+    	FragmentManager fm = getSupportFragmentManager();
+    	FragmentTransaction ft = fm.beginTransaction();
+    	Fragment previous = fm.findFragmentByTag("sign_in_dialog");
+    	
+    	if(previous != null) {
+    		ft.remove(previous);
+    	}
+    	
+    	ft.addToBackStack(null);
+    	
+    	DialogFragment fragment = SignInDialogFragment.newInstance();
+    	fragment.show(ft, "sign_in_dialog");
     }
 }

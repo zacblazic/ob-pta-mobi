@@ -1,4 +1,4 @@
-package com.openboxsoftware.obptamobi.fragments;
+package com.openboxsoftware.obptamobi.fragment;
 
 import com.openboxsoftware.obptamobi.R;
 

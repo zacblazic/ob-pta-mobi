@@ -8,5 +8,14 @@
     <string name="menu_signout">Sign Out</string>
     <string name="title_activity_pta">OBPTA.mobi</string>
     <string name="label_date_worked">Date Worked</string>
+    
+    <!-- SignInDialogFragment --> 
+    <string name="text_view_username">Username:</string>
+    <string name="text_view_password">Password:</string>
+    <string name="hint_username">Domain\\Username</string>
+    <string name="hint_password">Password</string>
+    <string name="check_box_remember">Remember</string>
+    <string name="button_sign_in">Sign in</string>
+    <string name="button_cancel">Cancel</string>
 
 </resources>
