@@ -1,5 +1,8 @@
 package com.openboxsoftware.obptamobi.dialog;
 
+import java.io.File;
+import java.io.IOException;
+
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 import com.openboxsoftware.obptamobi.PTAActivity;
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.authentication.Configuration;
+import com.openboxsoftware.obptamobi.authentication.ConfigurationHandler;
 
 public class SignInDialogFragment extends DialogFragment {
 	
@@ -53,8 +57,37 @@ public class SignInDialogFragment extends DialogFragment {
 			
 			public void onClick(View view) {
 				Toast.makeText(getActivity(), "Signing in...", Toast.LENGTH_SHORT).show();
-				
 				((PTAActivity)getActivity()).setSignedIn(true);
+				
+				CheckBox rememberCheckBox = (CheckBox)view.getRootView().findViewById(R.id.check_box_remember);
+				
+				Configuration config = new Configuration();
+				
+				if(rememberCheckBox.isChecked()) {
+					
+					EditText username = (EditText)view.getRootView().findViewById(R.id.edit_text_username);
+					EditText password = (EditText)view.getRootView().findViewById(R.id.edit_text_password);
+					
+					config.putOption("remember", "true");
+					config.putOption("username", username.getText().toString());
+					config.putOption("password", password.getText().toString());
+					
+				} else {
+					
+					config.putOption("username", "");
+					config.putOption("password", "");
+					config.putOption("remember", "false");
+				}
+				
+				
+				try{
+					
+					File file = new File(PTAActivity.STORAGE_PATH + "/obpta/config");
+					ConfigurationHandler.write(config, file);
+				} catch(IOException ioe) {
+
+				}
+				
 				
 				SignInDialogFragment.this.dismiss();
 				Toast.makeText(getActivity(), "Signed in successfully.", Toast.LENGTH_SHORT).show();
