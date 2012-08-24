@@ -1,10 +1,8 @@
 package com.openboxsoftware.obptamobi.fragment;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-
-import com.openboxsoftware.obptamobi.R;
-import com.openboxsoftware.obptamobi.dialog.AddNewCategoryDialogFragment;
-import com.openboxsoftware.obptamobi.dialog.DatePickerFragment;
+import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -13,12 +11,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.adapter.LogDataAdapter;
+import com.openboxsoftware.obptamobi.dialog.AddNewCategoryDialogFragment;
+import com.openboxsoftware.obptamobi.dialog.DatePickerFragment;
 
 public class LogWorkFragment extends Fragment
 {
@@ -64,13 +65,26 @@ public class LogWorkFragment extends Fragment
 		
 		
 		ListView lv = (ListView)view.findViewById(R.id.list_view);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
+		/*ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
 				, android.R.layout.simple_list_item_1
 				, android.R.id.text1
 				, stuff);
 		
 		lv.setAdapter(adapter);
+		*/
+
+		List<String> cat = new ArrayList<String>();
+		cat.add("OB:Admin - Training\nTraining\nnon-Project related training");
+		cat.add("OB:Leave - Admin\nOther Leave\nStudy Leave");
+		cat.add("OB:Leave - Admin\nPublic Holidays\nAll Public Holidays");
+		List<String> hrs = new ArrayList<String>();
+		hrs.add("0");
+		hrs.add("6");
+		hrs.add("0");
 		
+		LogDataAdapter adapter = new LogDataAdapter(getActivity(), cat, hrs);
+		
+		lv.setAdapter(adapter);
     	
     	return view;
     }
