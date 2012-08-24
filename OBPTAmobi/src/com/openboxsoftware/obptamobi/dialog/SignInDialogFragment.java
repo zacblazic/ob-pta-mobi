@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.openboxsoftware.obptamobi.PTAActivity;
 import com.openboxsoftware.obptamobi.R;
 
 public class SignInDialogFragment extends DialogFragment {
@@ -37,6 +38,9 @@ public class SignInDialogFragment extends DialogFragment {
 			
 			public void onClick(View view) {
 				Toast.makeText(getActivity(), "Signing in...", Toast.LENGTH_SHORT).show();
+				
+				((PTAActivity)getActivity()).setSignedIn(true);
+				
 				SignInDialogFragment.this.dismiss();
 				Toast.makeText(getActivity(), "Signed in successfully.", Toast.LENGTH_SHORT).show();
 			}
@@ -46,7 +50,9 @@ public class SignInDialogFragment extends DialogFragment {
 		cancelButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
+				Toast.makeText(getActivity(), "Exiting application...", Toast.LENGTH_SHORT).show();
 				SignInDialogFragment.this.dismiss();
+				((PTAActivity)getActivity()).finish();
 			}
 		});
 		
