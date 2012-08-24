@@ -1,5 +1,9 @@
 <resources>
 
+    <!-- Titles -->
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_new_category">New Category</string>
+    
     <string name="app_name">Mobile PTA</string>
     <string name="title_section3">Report</string>
     <string name="title_section2">Log Work</string>

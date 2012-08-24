@@ -20,11 +20,6 @@ public class AddNewCategoryDialogFragment extends DialogFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		int style = DialogFragment.STYLE_NO_TITLE;
-		int theme = android.R.style.Theme_Holo_Dialog;
-		
-		this.setStyle(style, theme);
 	}
 	
 	@Override
@@ -50,6 +45,8 @@ public class AddNewCategoryDialogFragment extends DialogFragment {
 				AddNewCategoryDialogFragment.this.dismiss();
 			}
 		});
+		
+		this.getDialog().setTitle(R.string.title_new_category);
 		
 		return view;
 	}
