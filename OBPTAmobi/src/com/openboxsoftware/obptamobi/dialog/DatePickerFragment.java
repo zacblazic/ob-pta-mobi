@@ -18,7 +18,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 		int month = c.get(Calendar.MONTH);
 		int day = c.get(Calendar.DAY_OF_MONTH);
 		
-		return new DatePickerDialog(getActivity(), this, year, month, day);
+		DatePickerDialog dpd = new DatePickerDialog(getActivity(), this, year, month, day);
+		dpd.setTitle("Date Worked");
+		
+		return dpd;
 	}
 	
 	public void onDateSet(DatePicker view, int year, int month, int day) {
