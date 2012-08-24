@@ -1,31 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:gravity="bottom">
-	
-	<SlidingDrawer 
-		android:id="@+id/drawer"
-	    android:layout_width="match_parent"
-	    android:layout_height="100dp"
-	    android:orientation="vertical"
-	    android:handle="@+id/handle"
-	    android:content="@+id/content"
-	     >
+<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
+
+
+        
+        <TextView
+	    android:id="@+id/label_date_worked"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/label_date_worked"
+	    android:textAppearance="?android:attr/textAppearanceMedium" /> 
+                        	    
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:gravity="bottom"
+		android:layout_gravity="bottom">
 		
-		<TextView android:id="@id/handle"
-		    android:layout_width="match_parent"
-		    android:layout_height="30dp"
-		    android:text="TOTALS"
-		    android:background="#BCD727"
-		    android:gravity="center"/>
+	    			
+		<SlidingDrawer 
+			android:id="@+id/drawer"
+		    android:layout_width="fill_parent"
+		    android:layout_height="100dp"
+		    android:orientation="vertical"
+		    android:handle="@+id/handle"
+		    android:content="@+id/content"
+		    android:background="#999999"
+		     >
 			
-		<TextView
-		    android:id="@id/content"
-			android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:text="Total: 50" />
-			
-	</SlidingDrawer>
+			<TextView android:id="@+id/handle"
+			    android:layout_width="match_parent"
+			    android:layout_height="30dp"
+			    android:text="TOTALS"
+			    android:background="#BCD727"
+			    android:gravity="center"/>
+				
+			<TextView
+			    android:id="@+id/content"
+				android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:text="Total: 50" />
+				
+		</SlidingDrawer>
+
+	</RelativeLayout>
+</LinearLayout> -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   >
+<TextView 
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="HELLO WORLD"
+   />
+<FrameLayout
+android:layout_width="fill_parent"
+android:layout_height="300dip" 
+android:layout_gravity="bottom"
+android:background="#808080">
+<TextView 
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="Something here: \nIt's a exercise \nof SlidingDrawer"
+   />
+<SlidingDrawer
+    android:id="@+id/drawer"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:handle="@+id/handle"
+    android:content="@+id/content">
+<TextView android:id="@+id/handle"
+			    android:layout_width="match_parent"
+			    android:layout_height="30dp"
+			    android:text="TOTALS"
+			    android:background="#BCD727"
+			    android:gravity="center"/>
+<LinearLayout
+    android:id="@id/content"
+    android:layout_width="fill_parent"
+    android:layout_height="200dip"
+    android:orientation="vertical"
+    android:background="#606060"
+    >
+<Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=" - Button - "/>
+<Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=" - Button - "/>
+<Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=" - Button - "/>
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="It's content of SlidingDrawer"/>
+</LinearLayout>
+</SlidingDrawer>
+</FrameLayout>
 </LinearLayout>
