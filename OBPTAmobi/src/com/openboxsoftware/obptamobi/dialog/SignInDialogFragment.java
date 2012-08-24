@@ -13,10 +13,6 @@ import com.openboxsoftware.obptamobi.PTAActivity;
 import com.openboxsoftware.obptamobi.R;
 
 public class SignInDialogFragment extends DialogFragment {
-	
-	public static SignInDialogFragment newInstance() {
-		return new SignInDialogFragment();
-	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

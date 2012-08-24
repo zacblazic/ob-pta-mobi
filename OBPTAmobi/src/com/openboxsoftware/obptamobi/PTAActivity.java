@@ -21,6 +21,8 @@ public class PTAActivity extends FragmentActivity {
 	private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private boolean signedIn;
+    
+    private DialogFragment signInDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -32,6 +34,8 @@ public class PTAActivity extends FragmentActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+  
+        signInDialog = new SignInDialogFragment();
         
         if(savedInstanceState != null) {
         	signedIn = savedInstanceState.getBoolean(SIGNED_IN_STATE);
@@ -53,6 +57,15 @@ public class PTAActivity extends FragmentActivity {
     protected void onSaveInstanceState(Bundle savedInstance) {
     	savedInstance.putBoolean(SIGNED_IN_STATE, signedIn);
     	super.onSaveInstanceState(savedInstance);
+    }
+    
+    @Override
+    protected void onPause() {
+    	if(signInDialog != null && signInDialog.isVisible()) {
+    		signInDialog.dismiss();
+    	}
+    	
+    	super.onPause();
     }
 
     public boolean isSignedIn() {
@@ -106,16 +119,6 @@ public class PTAActivity extends FragmentActivity {
     
     public void showSignInDialog() {
     	FragmentManager fm = getSupportFragmentManager();
-    	FragmentTransaction ft = fm.beginTransaction();
-    	Fragment previous = fm.findFragmentByTag("sign_in_dialog");
-    	
-    	if(previous != null) {
-    		ft.remove(previous);
-    	}
-    	
-    	ft.addToBackStack(null);
-    	
-    	DialogFragment fragment = SignInDialogFragment.newInstance();
-    	fragment.show(ft, "sign_in_dialog");
+    	signInDialog.show(fm, "sign_in_dialog");
     }
 }
