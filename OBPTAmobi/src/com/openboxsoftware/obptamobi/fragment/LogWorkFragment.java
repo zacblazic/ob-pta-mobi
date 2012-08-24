@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.adapter.LogDataAdapter;
@@ -42,6 +43,8 @@ public class LogWorkFragment extends Fragment
     {
         View view;
     	view = inflater.inflate(R.layout.fragment_log_work, container, false);
+
+		final Calendar c = Calendar.getInstance();
     	
     	Button newCategoryButton = (Button)view.findViewById(R.id.button_new_category);
 		newCategoryButton.setOnClickListener(new OnClickListener() {
@@ -50,7 +53,6 @@ public class LogWorkFragment extends Fragment
 				showAddCategoryDialog();
 			}
 		});
-		final Calendar c = Calendar.getInstance();
 		
 		Button dateWorkedButton = (Button)view.findViewById(R.id.button_date_worked);
 		dateWorkedButton.setText(c.get(Calendar.DAY_OF_MONTH) + "/" 
@@ -62,6 +64,12 @@ public class LogWorkFragment extends Fragment
 				showDatePickerDialog();
 			}
 		});
+		
+		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday",
+		        "Friday", "Saturday" };
+		
+		TextView weekday = (TextView)view.findViewById(R.id.label_weekday);
+		weekday.setText(strDays[c.get(Calendar.DAY_OF_WEEK)-1]);
 		
 		
 		ListView lv = (ListView)view.findViewById(R.id.list_view);

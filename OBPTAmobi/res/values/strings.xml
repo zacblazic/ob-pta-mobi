@@ -11,6 +11,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_pta">Mobile PTA</string>
     <string name="label_date_worked">Date Worked</string>
+    <string name="label_weekday">(weekday)</string>
     
     <!-- Menu -->
     <string name="menu_copy_from_previous">Copy From Previous Day</string>
@@ -54,6 +55,6 @@
         <item>Task 1</item>
         <item>Task 2</item>
     </string-array>
-    <string name="label_log_total">Total Hours: 8Hrs</string>
+    <string name="label_log_total">Total Hours: 6Hrs</string>
 
 </resources>
