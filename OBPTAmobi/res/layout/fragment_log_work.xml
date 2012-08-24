@@ -1,74 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-		<ScrollView 
+    <!--
+             <ScrollView 
 		    android:layout_width="fill_parent"
             android:layout_height="0dp"
 		    android:layout_weight="1"
 		    >
-		    
-		    
-        <LinearLayout 
+    -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
             android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
-			
-            <LinearLayout 
-            android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_weight="1">
-	        <TextView
-		    android:id="@+id/label_date_worked"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="@string/label_date_worked"
-		    android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_weight="1" /> 
-		    
-	        
-		    <Button android:id="@+id/button_date_worked"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="placeholder"/>
-            </LinearLayout>
-	            
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/label_date_worked"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_date_worked"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/button_date_worked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-		    
-		</ScrollView>
-                        	    
 
-        <LinearLayout 
-            android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:gravity="bottom">
-        
-    
-	    <Button android:id="@+id/button_new_category"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/button_new_category"/>
-    
-	    			
-			<TextView android:id="@+id/label_bottom"
-			    android:layout_width="match_parent"
-			    android:layout_height="40dp"
-			    android:text="@string/label_log_total"
-			    android:background="#BCD727"
-			    android:gravity="center"
-	    		android:textAppearance="?android:attr/textAppearanceMedium"/>
-					
-			
-        </LinearLayout>
-	
-</LinearLayout>
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </ListView>
+    </LinearLayout>
 
+    <!-- </ScrollView> -->
 
-<!-- <SlidingDrawer 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_new_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_new_category" />
+
+        <TextView
+            android:id="@+id/label_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#BCD727"
+            android:gravity="center"
+            android:text="@string/label_log_total"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</LinearLayout><!--
+     <SlidingDrawer 
 				android:id="@+id/drawer"
 			    android:layout_width="fill_parent"
 			    android:layout_height="100dp"
@@ -91,4 +94,5 @@
 			    android:layout_height="wrap_content"
 			    android:text="Total: 50" /> 
 			    
-	    </SlidingDrawer> -->
+	    </SlidingDrawer>
+-->

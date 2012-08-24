@@ -15,14 +15,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class LogWorkFragment extends Fragment
 {
-	
+	String stuff[] = new String[6];
 	
 	public LogWorkFragment() {
-		
+		stuff [0]= "Cake";
+		stuff [1]= "IS";
+		stuff [2]= "Very";
+		stuff [3]= "Lekka";
+		stuff [4]= "Mr";
+		stuff [5]= "Spriteman";
 	}
 
 	public static final String ARG_SECTION_NUMBER = "section_number";
@@ -32,7 +40,6 @@ public class LogWorkFragment extends Fragment
             Bundle savedInstanceState) 
     {
         View view;
-    	
     	view = inflater.inflate(R.layout.fragment_log_work, container, false);
     	
     	Button newCategoryButton = (Button)view.findViewById(R.id.button_new_category);
@@ -54,6 +61,16 @@ public class LogWorkFragment extends Fragment
 				showDatePickerDialog();
 			}
 		});
+		
+		
+		ListView lv = (ListView)view.findViewById(R.id.list_view);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
+				, android.R.layout.simple_list_item_1
+				, android.R.id.text1
+				, stuff);
+		
+		lv.setAdapter(adapter);
+		
     	
     	return view;
     }
