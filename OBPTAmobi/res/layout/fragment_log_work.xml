@@ -6,11 +6,11 @@
 
 		<ScrollView 
 		    android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-		    
+            android:layout_height="0dp"
+		    android:layout_weight="1"
 		    >
 		    
-		</ScrollView>
+		    
         
         <TextView
 	    android:id="@+id/label_date_worked"
@@ -18,20 +18,30 @@
 	    android:layout_height="wrap_content"
 	    android:text="@string/label_date_worked"
 	    android:textAppearance="?android:attr/textAppearanceMedium" /> 
+		    
+		</ScrollView>
                         	    
 
         <LinearLayout 
             android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:orientation="vertical"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
 			android:gravity="bottom">
+        
+    
+	    <Button android:id="@+id/button_new_category"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/button_new_category"/>
+    
 	    			
 			<TextView android:id="@+id/label_bottom"
 			    android:layout_width="match_parent"
-			    android:layout_height="30dp"
-			    android:text="TOTALS"
+			    android:layout_height="40dp"
+			    android:text="@string/label_log_total"
 			    android:background="#BCD727"
-			    android:gravity="center"/>
+			    android:gravity="center"
+	    		android:textAppearance="?android:attr/textAppearanceMedium"/>
 					
 			
         </LinearLayout>
