@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.openboxsoftware.obptamobi.dialog.SignInDialogFragment;
 import com.openboxsoftware.obptamobi.fragment.LogWorkFragment;
+import com.openboxsoftware.obptamobi.fragment.SummaryFragment;
 
 public class PTAActivity extends FragmentActivity {
 
@@ -74,11 +75,18 @@ public class PTAActivity extends FragmentActivity {
         public Fragment getItem(int i) 
         {
         	Fragment fragment;
-            if (i == 1) fragment = new LogWorkFragment();
-            else fragment = new DummySectionFragment();
-            Bundle args = new Bundle();
-            args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
-            fragment.setArguments(args);
+            
+        	switch(i) {
+        		case 0 : fragment = new SummaryFragment(); break;
+        		case 1 : fragment = new LogWorkFragment(); break;
+        		default : {
+        			fragment = new DummySectionFragment(); 
+        			Bundle args = new Bundle();
+                    args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
+                    fragment.setArguments(args);
+        		}
+        	}
+
             return fragment;
         }
 
