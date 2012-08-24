@@ -1,7 +1,10 @@
 package com.openboxsoftware.obptamobi.fragment;
 
+import java.util.Calendar;
+
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.dialog.AddNewCategoryDialogFragment;
+import com.openboxsoftware.obptamobi.dialog.DatePickerFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -39,6 +42,18 @@ public class LogWorkFragment extends Fragment
 				showAddCategoryDialog();
 			}
 		});
+		final Calendar c = Calendar.getInstance();
+		
+		Button dateWorkedButton = (Button)view.findViewById(R.id.button_date_worked);
+		dateWorkedButton.setText(c.get(Calendar.DAY_OF_MONTH) + "/" 
+								+ c.get(Calendar.MONTH) 
+								+ "/" + c.get(Calendar.YEAR));
+		dateWorkedButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				showDatePickerDialog();
+			}
+		});
     	
     	return view;
     }
@@ -57,5 +72,11 @@ public class LogWorkFragment extends Fragment
     	
     	DialogFragment fragment = AddNewCategoryDialogFragment.newInstance();
     	fragment.show(ft, "add_new_category_dialog");
+	}
+	
+	private void showDatePickerDialog()
+	{
+		DialogFragment newFragment = new DatePickerFragment();
+	    newFragment.show(this.getFragmentManager(), "datePicker");
 	}
 }
