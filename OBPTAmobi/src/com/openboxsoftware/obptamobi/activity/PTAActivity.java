@@ -8,9 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
 import com.openboxsoftware.obptamobi.R;
-import com.openboxsoftware.obptamobi.R.id;
-import com.openboxsoftware.obptamobi.R.layout;
-import com.openboxsoftware.obptamobi.R.menu;
 import com.openboxsoftware.obptamobi.adapter.SectionsPagerAdapter;
 import com.openboxsoftware.obptamobi.dialog.SignInDialogFragment;
 
