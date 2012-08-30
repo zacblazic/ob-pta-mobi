@@ -11,7 +11,7 @@
     <View
          android:layout_width="fill_parent"
          android:layout_height="2dp"
-         android:background="#BCD727" />
+         android:background="@color/ob_green" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -53,7 +53,7 @@
         <View
          android:layout_width="fill_parent"
          android:layout_height="2dp"
-         android:background="#BCD727" />
+         android:background="@color/ob_green" />
         
         <ListView
             android:id="@+id/list_view"
@@ -64,7 +64,7 @@
         <View
          android:layout_width="fill_parent"
          android:layout_height="2dp"
-         android:background="#BCD727" />
+         android:background="@color/ob_green" />
     </LinearLayout>
 
     <Space
@@ -91,7 +91,7 @@
             android:id="@+id/label_bottom"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="#BCD727"
+            android:background="@color/ob_green"
             android:gravity="center"
             android:text="@string/label_log_total"
             android:textAppearance="?android:attr/textAppearanceMedium" />
