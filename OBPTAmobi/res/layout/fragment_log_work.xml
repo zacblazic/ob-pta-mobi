@@ -61,6 +61,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1" >
         </ListView>
+        <View
+         android:layout_width="fill_parent"
+         android:layout_height="2dp"
+         android:background="#BCD727" />
     </LinearLayout>
 
     <Space
