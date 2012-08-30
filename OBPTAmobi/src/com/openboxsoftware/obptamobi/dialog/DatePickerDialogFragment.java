@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
 	Calendar c;
 	@Override

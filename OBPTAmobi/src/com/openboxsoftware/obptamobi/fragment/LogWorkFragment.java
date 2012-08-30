@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.adapter.LogDataAdapter;
 import com.openboxsoftware.obptamobi.dialog.AddNewCategoryDialogFragment;
-import com.openboxsoftware.obptamobi.dialog.DatePickerFragment;
+import com.openboxsoftware.obptamobi.dialog.DatePickerDialogFragment;
 
 public class LogWorkFragment extends Fragment
 {
@@ -115,7 +115,7 @@ public class LogWorkFragment extends Fragment
 	
 	private void showDatePickerDialog()
 	{
-		DialogFragment newFragment = new DatePickerFragment();
+		DialogFragment newFragment = new DatePickerDialogFragment();
 	    newFragment.show(this.getFragmentManager(), "datePicker");
 	}
 }

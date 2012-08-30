@@ -1,15 +1,14 @@
 package com.openboxsoftware.obptamobi.dialog;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-
-import com.openboxsoftware.obptamobi.PTAActivity;
-import com.openboxsoftware.obptamobi.R;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SignInDialogFragment extends DialogFragment {
 	
@@ -22,29 +21,50 @@ public class SignInDialogFragment extends DialogFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
+//		View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
+//		
+//		Button signInButton = (Button)view.findViewById(R.id.button_sign_in);
+//		signInButton.setOnClickListener(new OnClickListener() {
+//			
+//			public void onClick(View view) {
+//				SignInDialogFragment.this.dismiss();
+//			}
+//		});
+//		
+//		Button cancelButton = (Button)view.findViewById(R.id.button_cancel);
+//		cancelButton.setOnClickListener(new OnClickListener() {
+//			
+//			public void onClick(View view) {
+//				SignInDialogFragment.this.dismiss();
+//				((PTAActivity)getActivity()).finish();
+//			}
+//		});
+//		
+//		// Don't allow the dialog to be cancelled by touching outside of it
+//		this.getDialog().setCanceledOnTouchOutside(false);
+//		this.getDialog().setTitle(R.string.title_sign_in);
 		
-		Button signInButton = (Button)view.findViewById(R.id.button_sign_in);
-		signInButton.setOnClickListener(new OnClickListener() {
+		AccountManager accountManager = AccountManager.get(getActivity());
+		
+		
+		Account account = new Account("zblazic", "com.openboxsoftware.pta");
+		accountManager.addAccountExplicitly(account, "password", null);
+		
+		Account[] accounts = accountManager.getAccountsByType("com.openboxsoftware.pta");
+		
+		LinearLayout layout = new LinearLayout(getActivity());
+		layout.setOrientation(LinearLayout.VERTICAL);
+		
+		for(int i = 0; i < accounts.length; i++) {
+
+			String username = accounts[i].name;
 			
-			public void onClick(View view) {
-				SignInDialogFragment.this.dismiss();
-			}
-		});
-		
-		Button cancelButton = (Button)view.findViewById(R.id.button_cancel);
-		cancelButton.setOnClickListener(new OnClickListener() {
+			TextView textView = new TextView(getActivity());
+			textView.setText(username);
 			
-			public void onClick(View view) {
-				SignInDialogFragment.this.dismiss();
-				((PTAActivity)getActivity()).finish();
-			}
-		});
+			layout.addView(textView);
+		}
 		
-		// Don't allow the dialog to be cancelled by touching outside of it
-		this.getDialog().setCanceledOnTouchOutside(false);
-		this.getDialog().setTitle(R.string.title_sign_in);
-		
-		return view;
+		return layout;
 	}
 }
