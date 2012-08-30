@@ -7,7 +7,7 @@
     <View
          android:layout_width="fill_parent"
          android:layout_height="2dp"
-         android:background="#BCD727" />
+         android:background="@color/ob_green" />
     
     
 </LinearLayout>

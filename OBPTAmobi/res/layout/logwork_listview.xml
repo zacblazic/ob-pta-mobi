@@ -22,15 +22,27 @@
 			android:textAppearance="?android:attr/textAppearanceMedium" />
 	</LinearLayout>
 	
+    
     <View
          android:layout_width="2dp"
          android:layout_height="fill_parent"
-         android:background="#BCD727" />
+         android:background="@color/ob_green" />
 	
-	<TextView
-		android:id="@+id/label_hours"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-    	android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   	android:layout_weight="1" >
+		<TextView
+			android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:text="@string/label_hours"
+			android:textAppearance="?android:attr/textAppearanceSmall" />
+		<EditText
+			android:id="@+id/label_hours"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	</LinearLayout>
 </LinearLayout>
