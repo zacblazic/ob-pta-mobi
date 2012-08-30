@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 public class AccountManager 
 {
 	private static final String PREFS_ACCOUNT_DATA = "AccountData";
-	private static final String KEY_USERNAME = "Username";
+	private static final String KEY_NAME = "Name";
 	private static final String KEY_PASSWORD = "Password";
 	
 	private Context context;
@@ -37,7 +37,7 @@ public class AccountManager
 		// Get private shared preferences
 		SharedPreferences settings = context.getSharedPreferences(PREFS_ACCOUNT_DATA, Context.MODE_PRIVATE);
 		
-		if(settings.contains(KEY_USERNAME)) {
+		if(settings.contains(KEY_NAME)) {
 			return false;
 		}
 		
@@ -46,7 +46,7 @@ public class AccountManager
 		
 		// Add the username and hashed password to the shared preferences
 		SharedPreferences.Editor editor = settings.edit();
-		editor.putString(KEY_USERNAME, name);
+		editor.putString(KEY_NAME, name);
 		editor.putString(KEY_PASSWORD, passwordHash);
 		editor.commit();
 		
