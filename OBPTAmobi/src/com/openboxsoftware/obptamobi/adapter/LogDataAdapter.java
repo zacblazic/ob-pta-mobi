@@ -18,51 +18,62 @@ public class LogDataAdapter extends BaseAdapter{
 	private List<String> category;
 	private List<String> hours;
 
-	public LogDataAdapter(Context context) {
+	public LogDataAdapter(Context context) 
+	{
 		mInflater = LayoutInflater.from(context);
 	}
-	public LogDataAdapter(Context context, List<String> category, List<String> hours) {
+	
+	public LogDataAdapter(Context context, List<String> category, List<String> hours) 
+	{
 		mInflater = LayoutInflater.from(context);
 		this.category = category;
 		this.hours = hours;
 	}
 
-	public int getCount() {
-		
+	public int getCount() 
+	{		
 		return category.size();
 	}
 
-	public Object getItem(int arg0) {
-		
-		return category.get(arg0);
+	public Object getItem(int position) 
+	{
+		return category.get(position);
 	}
 
-	public long getItemId(int arg0) {
-		return arg0;
+	public long getItemId(int position) 
+	{
+		return position;
 	}
 
-	public View getView(int arg0, View arg1, ViewGroup arg2) {
+	public View getView(int position, View view, ViewGroup viewGroup) 
+	{
 		ViewHolder holder;
 		
-		if (arg1 == null)
+		if (view == null)
 		{
-			arg1 = mInflater.inflate(R.layout.listview, null);
+			view = mInflater.inflate(R.layout.logwork_listview, null);
 			holder = new ViewHolder();
-			holder.txt1 = (TextView) arg1.findViewById(R.id.label_category);
-			holder.txt2 = (TextView) arg1.findViewById(R.id.label_hours);
+			holder.longCategory = (TextView) view.findViewById(R.id.label_long_category);
+			holder.shortCategory = (TextView) view.findViewById(R.id.label_short_category);
+			holder.hours = (TextView) view.findViewById(R.id.label_hours);
 			
-			arg1.setTag(holder);
+			view.setTag(holder);
 		}
 		
 		else 
 		{
-			holder = (ViewHolder)arg1.getTag();
+			holder = (ViewHolder)view.getTag();
 		}
 		
-		holder.txt1.setText(category.get(arg0));		
-		holder.txt2.setText(hours.get(arg0));
+		String fullCat = category.get(position);
+		String longCat = fullCat.substring(0, fullCat.indexOf("\n"));
+		String shortCat = fullCat.substring(fullCat.indexOf("\n"));
+
+		holder.longCategory.setText(longCat);
+		holder.shortCategory.setText(shortCat);		
+		holder.hours.setText(hours.get(position));
 		
-		return arg1;
+		return view;
 	}
 	
 }

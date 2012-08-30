@@ -82,9 +82,9 @@ public class LogWorkFragment extends Fragment
 		*/
 
 		List<String> cat = new ArrayList<String>();
-		cat.add("OB:Admin - Training\nTraining\nnon-Project related training");
-		cat.add("OB:Leave - Admin\nOther Leave\nStudy Leave");
-		cat.add("OB:Leave - Admin\nPublic Holidays\nAll Public Holidays");
+		cat.add("OB:Admin - Training - Training\nnon-Project related training");
+		cat.add("OB:Leave - Admin - Other Leave\nStudy Leave");
+		cat.add("OB:Leave - Admin - Public Holidays\nAll Public Holidays");
 		List<String> hrs = new ArrayList<String>();
 		hrs.add("0");
 		hrs.add("6");
