@@ -41,19 +41,24 @@ public class PTAActivity extends FragmentActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
   
-        if(!configurationExists()) {
+        if(!configurationExists()) 
+        {
         	configuration = getDefaultConfiguration();
-        } else {
+        }
+        else 
+        {
         	configuration = getConfigurationFromFile();
         }
         
         signInDialog = new SignInDialogFragment();
         
-        if(savedInstanceState != null) {
+        if(savedInstanceState != null) 
+        {
         	signedIn = savedInstanceState.getBoolean(SIGNED_IN_STATE);
         }
         
-        if(!isSignedIn()) {
+        if(!isSignedIn()) 
+        {
         	this.showSignInDialog();
         }
     }
