@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.holder.ListViewHolder;
+import com.openboxsoftware.obptamobi.listener.OnLogHoursChangedListener;
 
 public class LogDataAdapter extends BaseAdapter{
 
@@ -19,11 +20,13 @@ public class LogDataAdapter extends BaseAdapter{
 	private List<String> category;
 	private List<Float> hours;
 	private Context context;
+	private static float totalHours;
 
 	public LogDataAdapter(Context context) 
 	{
 		mInflater = LayoutInflater.from(context);
 		this.context = context;
+		totalHours = 0;
 	}
 	
 	public LogDataAdapter(Context context, List<String> category, List<Float> hours) 
@@ -32,6 +35,7 @@ public class LogDataAdapter extends BaseAdapter{
 		this.context = context;
 		this.category = category;
 		this.hours = hours;
+		totalHours = 0;
 	}
 
 	public int getCount() 
@@ -60,6 +64,7 @@ public class LogDataAdapter extends BaseAdapter{
 			holder.longCategory = (TextView) view.findViewById(R.id.label_long_category);
 			holder.shortCategory = (TextView) view.findViewById(R.id.label_short_category);
 			holder.hours = (EditText) view.findViewById(R.id.label_hours);
+			holder.hours.setOnEditorActionListener(new OnLogHoursChangedListener());
 			
 			view.setTag(holder);
 		}
@@ -77,9 +82,14 @@ public class LogDataAdapter extends BaseAdapter{
 		holder.shortCategory.setText(shortCat);		
 		holder.hours.setText(hours.get(position).toString());
 		
+		totalHours += hours.get(position);
+		
 		return view;
 	}
 	
-	
+	public static float getTotalHours() 
+	{
+		return totalHours;
+	}
 	
 }

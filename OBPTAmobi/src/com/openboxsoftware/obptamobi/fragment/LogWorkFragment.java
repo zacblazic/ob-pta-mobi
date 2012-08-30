@@ -100,7 +100,7 @@ public class LogWorkFragment extends Fragment
 		}
 		
 		TextView txt = (TextView)view.findViewById(R.id.label_log_total);
-		txt.setText(txt.getText() + " " + x);
+		txt.setText("Total Hours: " + x);
     	
     	return view;
     }
