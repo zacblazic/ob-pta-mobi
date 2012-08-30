@@ -16,23 +16,20 @@ import com.openboxsoftware.obptamobi.listener.OnLogHoursChangedListener;
 
 public class LogDataAdapter extends BaseAdapter{
 
-	private LayoutInflater mInflater;
+	private LayoutInflater inflater;
 	private List<String> category;
 	private List<Float> hours;
-	private Context context;
 	private static float totalHours;
 
 	public LogDataAdapter(Context context) 
 	{
-		mInflater = LayoutInflater.from(context);
-		this.context = context;
+		inflater = LayoutInflater.from(context);
 		totalHours = 0;
 	}
 	
 	public LogDataAdapter(Context context, List<String> category, List<Float> hours) 
 	{
-		mInflater = LayoutInflater.from(context);
-		this.context = context;
+		inflater = LayoutInflater.from(context);
 		this.category = category;
 		this.hours = hours;
 		totalHours = 0;
@@ -59,7 +56,7 @@ public class LogDataAdapter extends BaseAdapter{
 		
 		if (view == null)
 		{
-			view = mInflater.inflate(R.layout.logwork_listview, null);
+			view = inflater.inflate(R.layout.logwork_listview, null);
 			holder = new ListViewHolder();
 			holder.longCategory = (TextView) view.findViewById(R.id.label_long_category);
 			holder.shortCategory = (TextView) view.findViewById(R.id.label_short_category);
