@@ -2,30 +2,34 @@ package com.openboxsoftware.obptamobi.adapter;
 
 import java.util.List;
 
-import com.openboxsoftware.obptamobi.R;
-import com.openboxsoftware.obptamobi.holder.ViewHolder;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.holder.ListViewHolder;
 
 public class LogDataAdapter extends BaseAdapter{
 
 	private LayoutInflater mInflater;
 	private List<String> category;
-	private List<String> hours;
+	private List<Float> hours;
+	private Context context;
 
 	public LogDataAdapter(Context context) 
 	{
 		mInflater = LayoutInflater.from(context);
+		this.context = context;
 	}
 	
-	public LogDataAdapter(Context context, List<String> category, List<String> hours) 
+	public LogDataAdapter(Context context, List<String> category, List<Float> hours) 
 	{
 		mInflater = LayoutInflater.from(context);
+		this.context = context;
 		this.category = category;
 		this.hours = hours;
 	}
@@ -47,22 +51,22 @@ public class LogDataAdapter extends BaseAdapter{
 
 	public View getView(int position, View view, ViewGroup viewGroup) 
 	{
-		ViewHolder holder;
+		ListViewHolder holder;
 		
 		if (view == null)
 		{
 			view = mInflater.inflate(R.layout.logwork_listview, null);
-			holder = new ViewHolder();
+			holder = new ListViewHolder();
 			holder.longCategory = (TextView) view.findViewById(R.id.label_long_category);
 			holder.shortCategory = (TextView) view.findViewById(R.id.label_short_category);
-			holder.hours = (TextView) view.findViewById(R.id.label_hours);
+			holder.hours = (EditText) view.findViewById(R.id.label_hours);
 			
 			view.setTag(holder);
 		}
 		
 		else 
 		{
-			holder = (ViewHolder)view.getTag();
+			holder = (ListViewHolder)view.getTag();
 		}
 		
 		String fullCat = category.get(position);
@@ -71,9 +75,11 @@ public class LogDataAdapter extends BaseAdapter{
 
 		holder.longCategory.setText(longCat);
 		holder.shortCategory.setText(shortCat);		
-		holder.hours.setText(hours.get(position));
+		holder.hours.setText(hours.get(position).toString());
 		
 		return view;
 	}
+	
+	
 	
 }
