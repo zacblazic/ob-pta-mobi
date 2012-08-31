@@ -41,8 +41,8 @@ public class AccountManager
 		// Get private shared preferences
 		SharedPreferences settings = context.getSharedPreferences(PREFS_ACCOUNT_DATA, Context.MODE_PRIVATE);
 		
-		// Generate a bcrypt hash of the password
-		String passwordHash = BCrypt.hashPassword(account.getPassword(), BCrypt.generateSalt());
+		// TODO: Encrypt here
+		String passwordHash = account.getPassword();
 		
 		// Add the username and hashed password to the shared preferences
 		SharedPreferences.Editor editor = settings.edit();
@@ -60,6 +60,8 @@ public class AccountManager
 		
 		String username = settings.getString(KEY_USERNAME, null);
 		String passwordHash = settings.getString(KEY_PASSWORD, null);
+		
+		// TODO: Decrypt here
 		String password = passwordHash;
 		
 		Account account = new Account(username);
