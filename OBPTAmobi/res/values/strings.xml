@@ -36,6 +36,7 @@
     <string name="hint_username">Domain\\Username</string>
     <string name="hint_password">Password</string>
     <string name="check_box_remember">Remember</string>
+    <string name="check_box_auto_sign_in">Sign in automatically</string>
     <string name="button_sign_in">Sign in</string>
     
     <!-- AddNewCategoryDialogFragment --> 
@@ -45,6 +46,7 @@
     <string name="text_view_hours">Hours:</string>
     <string name="check_box_billable">Billable</string>
     <string name="button_save">Save</string>
+    
     <string-array name="array_project">
         <item>OB: Admin</item>
         <item>OB: Leave</item>

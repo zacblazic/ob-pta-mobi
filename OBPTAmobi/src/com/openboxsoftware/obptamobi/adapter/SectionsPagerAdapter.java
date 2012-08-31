@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.openboxsoftware.obptamobi.R;
-import com.openboxsoftware.obptamobi.fragment.LogWorkFragment;
 import com.openboxsoftware.obptamobi.fragment.SummaryFragment;
+import com.openboxsoftware.obptamobi.fragment.logwork.LogWorkFragment;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter 
 {

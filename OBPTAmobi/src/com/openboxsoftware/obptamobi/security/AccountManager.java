@@ -9,7 +9,7 @@ public class AccountManager
 	private static final String KEY_USERNAME = "Username";
 	private static final String KEY_PASSWORD = "Password";
 	
-	private Context context;
+	private final Context context;
 	private static AccountManager instance;
 	
 	public static AccountManager get(Context context) 
@@ -51,6 +51,11 @@ public class AccountManager
 		
 		String username = settings.getString(KEY_USERNAME, null);
 		String passwordHash = settings.getString(KEY_PASSWORD, null);
+		
+		// If we cannot find the username or password we can't do much
+		if(username == null || passwordHash == null) {
+			return null;
+		}
 		
 		// TODO: Decrypt here
 		String password = passwordHash;

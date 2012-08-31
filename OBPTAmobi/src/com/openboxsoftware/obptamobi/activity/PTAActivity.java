@@ -9,7 +9,7 @@ import android.view.Menu;
 
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.adapter.SectionsPagerAdapter;
-import com.openboxsoftware.obptamobi.dialog.SignInDialogFragment;
+import com.openboxsoftware.obptamobi.dialog.signin.SignInDialogFragment;
 
 public class PTAActivity extends FragmentActivity 
 {

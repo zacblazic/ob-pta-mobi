@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.fragment.logwork.OnLogHoursChangedListener;
 import com.openboxsoftware.obptamobi.holder.ListViewHolder;
-import com.openboxsoftware.obptamobi.listener.OnLogHoursChangedListener;
 
 public class LogDataAdapter extends BaseAdapter{
 
