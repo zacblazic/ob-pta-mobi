@@ -1,6 +1,7 @@
 package com.openboxsoftware.obptamobi.dialog;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +37,26 @@ public class SignInDialogFragment extends DialogFragment {
 		cancelButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
-				SignInDialogFragment.this.dismiss();
-				((PTAActivity)getActivity()).finish();
+				SignInDialogFragment.this.getDialog().hide();
+				
+				new CountDownTimer(3000, 1000) {
+
+					@Override
+					public void onFinish() {
+						if(SignInDialogFragment.this.getDialog() != null) 
+						{
+							SignInDialogFragment.this.getDialog().show();
+						}
+						
+					}
+
+					@Override
+					public void onTick(long arg0) {
+						
+						
+					}
+					
+				}.start();
 			}
 		});
 		

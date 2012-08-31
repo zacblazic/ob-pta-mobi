@@ -2,44 +2,37 @@ package com.openboxsoftware.obptamobi.security;
 
 public class Account 
 {
-	String name;
-	String type;
-	String password;
+	private final String username;
+	private String password;
 	
-	public Account(String name, String type) 
+	public Account(String username) 
 	{
-		this.name = name;
-		this.type = type;
+		if(username == null) 
+		{
+			throw new IllegalArgumentException("Username cannot be null");
+		}
+		
+		this.username = username;
 		this.password = new String();
+	}	
+	
+	public String getUsername() 
+	{
+		return username;
+	}
+
+	String getPassword() 
+	{
+		return password;
 	}
 	
-	public String getName() 
+	void setPassword(String password) 
 	{
-		return name;
-	}
-	
-	public void setName(String name) 
-	{
-		if(name == null) 
+		if(password == null)
 		{
-			throw new IllegalArgumentException("Name is required");
+			throw new IllegalArgumentException("Password cannot be null");
 		}
 		
-		this.name = name;
-	}
-	
-	public String getType() 
-	{
-		return type;
-	}
-	
-	public void setType(String type)
-	{
-		if(type == null) 
-		{
-			throw new IllegalArgumentException("Type is required");
-		}
-		
-		this.type = type;
+		this.password = password;
 	}
 }
