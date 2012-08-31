@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.openboxsoftware.obptamobi.R;
-import com.openboxsoftware.obptamobi.activity.PTAActivity;
 
 public class SignInDialogFragment extends DialogFragment {
 	
