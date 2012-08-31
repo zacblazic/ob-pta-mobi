@@ -11,32 +11,31 @@ import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.adapter.SectionsPagerAdapter;
 import com.openboxsoftware.obptamobi.dialog.signin.SignInDialogFragment;
 
-public class PTAActivity extends FragmentActivity 
+public class MainActivity extends FragmentActivity 
 {
 	private static final String SIGNED_IN_STATE = "signed_in_state";
 	
-	private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
+	private SectionsPagerAdapter sectionsPagerAdapter;
+    private ViewPager viewPager;
     
-    private DialogFragment mSignInDialog;
-    private boolean mSignedIn;
+    private DialogFragment signInDialog;
+    private boolean signedIn;
     
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pta);
+        setContentView(R.layout.activity_main);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
         
-        mSignInDialog = new SignInDialogFragment();
+        signInDialog = new SignInDialogFragment();
         
         if(savedInstanceState != null) 
         {
-        	mSignedIn = savedInstanceState.getBoolean(SIGNED_IN_STATE);
+        	signedIn = savedInstanceState.getBoolean(SIGNED_IN_STATE);
         }
         
         if(!isSignedIn()) 
@@ -44,8 +43,8 @@ public class PTAActivity extends FragmentActivity
         	this.showSignInDialog();
         }
     }
-    
-    @Override
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) 
     {
         getMenuInflater().inflate(R.menu.activity_pta, menu);
@@ -55,16 +54,16 @@ public class PTAActivity extends FragmentActivity
     @Override
     protected void onSaveInstanceState(Bundle savedInstance) 
     {
-    	savedInstance.putBoolean(SIGNED_IN_STATE, mSignedIn);
+    	savedInstance.putBoolean(SIGNED_IN_STATE, signedIn);
     	super.onSaveInstanceState(savedInstance);
     }
     
     @Override
     protected void onPause() 
     {
-    	if(mSignInDialog != null && mSignInDialog.isVisible()) 
+    	if(signInDialog != null && signInDialog.isVisible()) 
     	{
-    		mSignInDialog.dismiss();
+    		signInDialog.dismiss();
     	}
     	
     	super.onPause();
@@ -72,17 +71,17 @@ public class PTAActivity extends FragmentActivity
 
     public boolean isSignedIn() 
     {
-    	return mSignedIn;
+    	return signedIn;
     }
     
     public void setSignedIn(boolean signedIn) 
     {
-    	this.mSignedIn = signedIn;
+    	this.signedIn = signedIn;
     }
     
     public void showSignInDialog() 
     {
     	FragmentManager fm = getSupportFragmentManager();
-    	mSignInDialog.show(fm, "sign_in_dialog");
+    	signInDialog.show(fm, "sign_in_dialog");
     }
 }

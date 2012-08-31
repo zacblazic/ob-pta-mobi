@@ -9,7 +9,7 @@
     <string name="title_section2">Log Work</string>
     <string name="title_section1">Summary</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_pta">Mobile PTA</string>
+    <string name="title_activity_main">Mobile PTA</string>
     <string name="label_date_worked">Date Worked</string>
     <string name="label_weekday">(weekday)</string>
     <string name="label_hours">Hours:</string>

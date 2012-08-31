@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.preference.SignInPreferenceManager;
 
 public class SignInDialogFragment extends DialogFragment 
 {
@@ -21,9 +22,10 @@ public class SignInDialogFragment extends DialogFragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
-		
+		// Inflate the layout
 		View view = inflater.inflate(R.layout.dialog_sign_in, container, false);
 		
+		// Add listeners to views
 		Button signInButton = (Button)view.findViewById(R.id.button_sign_in);
 		signInButton.setOnClickListener(new OnSignInClickListener(this));
 		
@@ -36,6 +38,14 @@ public class SignInDialogFragment extends DialogFragment
 		// Don't allow the dialog to be cancelled by touching outside of it
 		this.getDialog().setCanceledOnTouchOutside(false);
 		this.getDialog().setTitle(R.string.title_sign_in);
+		
+		SignInPreferenceManager pm = SignInPreferenceManager.get(getActivity());
+    	
+        CheckBox remember = (CheckBox)view.findViewById(R.id.check_box_remember);
+    	remember.setChecked(pm.isRememberEnabled());
+    	
+    	CheckBox autoSignIn = (CheckBox)view.findViewById(R.id.check_box_auto_sign_in);
+    	autoSignIn.setChecked(pm.isAutoSignInEnabled());
 		
 		return view;
 	}
