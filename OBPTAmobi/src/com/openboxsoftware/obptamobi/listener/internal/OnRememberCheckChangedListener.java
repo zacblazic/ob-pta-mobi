@@ -1,4 +1,4 @@
-package com.openboxsoftware.obptamobi.listener;
+package com.openboxsoftware.obptamobi.listener.internal;
 
 import android.view.View;
 import android.widget.CheckBox;

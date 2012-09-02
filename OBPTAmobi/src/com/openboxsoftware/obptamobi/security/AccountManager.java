@@ -68,7 +68,14 @@ public class AccountManager
 	
 	public void removeAccount() 
 	{
+		// Get private shared preferences
+		SharedPreferences settings = context.getSharedPreferences(PREFS_ACCOUNT_DATA, Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
 		
+		// Remove account details
+		editor.remove(KEY_USERNAME);
+		editor.remove(KEY_PASSWORD);
+		editor.commit();
 	}
 	
 	public String getPassword(Account account) 

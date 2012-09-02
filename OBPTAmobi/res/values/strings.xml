@@ -11,11 +11,11 @@
     <string name="title_report_fragment">Report</string>
     <string name="title_log_work_fragment">Log Work</string>
     <string name="title_summary_fragment">Summary</string>
-    <string name="menu_copy_from_previous">Copy From Previous Day</string>
-    <string name="menu_save_and_load">Save and Load Next Working Day</string>
+    <string name="menu_copy_from_previous">Copy from previous day</string>
+    <string name="menu_save_and_load">Save and load next day</string>
     <string name="menu_save">Save</string>
     <string name="menu_reset">Reset</string>
-    <string name="menu_show_hidden">Show Hidden</string>
+    <string name="menu_show_hidden">Show hidden</string>
     <string name="menu_signout">Sign out</string>
     
     <!-- SignInActivity -->
