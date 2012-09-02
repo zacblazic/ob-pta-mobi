@@ -1,25 +1,28 @@
-package com.openboxsoftware.obptamobi.dialog.signin;
+package com.openboxsoftware.obptamobi.listener;
 
-import android.support.v4.app.DialogFragment;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 
 import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.activity.MainFragmentActivity;
 import com.openboxsoftware.obptamobi.preference.SignInPreferenceManager;
 
 public class OnSignInClickListener implements OnClickListener 
 {
-private DialogFragment dialog;
+	private Context context;
 	
-	public OnSignInClickListener(DialogFragment dialog)
+	public OnSignInClickListener(Context context)
 	{
-		this.dialog = dialog;
+		this.context = context;
 	}
 	
 	public void onClick(View view) 
 	{
-		SignInPreferenceManager pm = SignInPreferenceManager.get(dialog.getActivity());
+		SignInPreferenceManager pm = SignInPreferenceManager.get(context);
 		CheckBox remember = (CheckBox)view.getRootView().findViewById(R.id.check_box_remember);
 		
 		if(remember.isChecked() && !pm.isRememberEnabled())
@@ -31,6 +34,9 @@ private DialogFragment dialog;
 			pm.setRememberEnabled(false);
 		}
 		
-		dialog.dismiss();
+		Intent intent = new Intent(context, MainFragmentActivity.class);
+		context.startActivity(intent);
+		
+		((Activity)context).finish();
 	}
 }

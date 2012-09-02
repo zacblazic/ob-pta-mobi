@@ -63,7 +63,7 @@ public class AccountManager
 		Account account = new Account(username);
 		account.setPassword(password);
 		
-		return null;
+		return account;
 	}
 	
 	public void removeAccount() 
