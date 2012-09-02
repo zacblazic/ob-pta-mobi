@@ -28,10 +28,4 @@ public class SignInActivity extends Activity {
 		CheckBox rememberCheckBox = (CheckBox)findViewById(R.id.check_box_remember);
 		rememberCheckBox.setOnCheckedChangeListener(new OnRememberCheckChangedListener());
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_sign_in, menu);
-        return true;
-    }
 }

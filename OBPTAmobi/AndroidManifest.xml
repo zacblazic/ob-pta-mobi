@@ -17,8 +17,8 @@
         android:theme="@android:style/Theme.Holo.Light" >
         
         <activity
-            android:name=".activity.SignInActivity"
-            android:label="@string/title_activity_sign_in" >
+            android:name=".activity.MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,9 +26,14 @@
         </activity>
         
         <activity
+            android:name=".activity.SignInActivity"
+            android:label="@string/title_activity_sign_in" >
+        </activity>
+        
+        <activity
             android:name=".activity.MainFragmentActivity"
             android:label="@string/title_activity_main_fragment" >
         </activity>
-  
+        
     </application>
 </manifest>
